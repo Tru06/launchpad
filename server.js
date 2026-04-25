@@ -23,6 +23,11 @@ app.get('/api/health', (req, res) => {
     res.status(200).json({ status: 'ok', message: 'LaunchPad backend is running.' });
 });
 
+// Root endpoint for friendly browser message
+app.get('/', (req, res) => {
+    res.send('<h1>LaunchPad API is running!</h1><p>Use /api/health to check status.</p>');
+});
+
 // Start server
 if (process.env.NODE_ENV !== 'production') {
     app.listen(PORT, () => {
